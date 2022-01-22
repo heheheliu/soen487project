@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="fdbbb85d-d9ce-4ce8-b7a6-169cd5f29ce3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../T01-master/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/pom.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="244ZF3DACUp1aRT3hwiucw6dnH9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="fdbbb85d-d9ce-4ce8-b7a6-169cd5f29ce3" name="Default Changelist" comment="" />
+      <created>1642891711558</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1642891711558</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="662" y="220" key="#com.intellij.ide.util.MemberChooser" timestamp="1642891870908">
+      <screen x="0" y="25" width="1680" height="1025" />
+    </state>
+    <state x="662" y="220" key="#com.intellij.ide.util.MemberChooser/0.25.1680.1025@0.25.1680.1025" timestamp="1642891870908" />
+    <state width="1675" height="273" key="GridCell.Tab.0.bottom" timestamp="1642892664847">
+      <screen x="0" y="25" width="1680" height="1025" />
+    </state>
+    <state width="1675" height="273" key="GridCell.Tab.0.bottom/0.25.1680.1025@0.25.1680.1025" timestamp="1642892664847" />
+    <state width="1675" height="273" key="GridCell.Tab.0.center" timestamp="1642892664846">
+      <screen x="0" y="25" width="1680" height="1025" />
+    </state>
+    <state width="1675" height="273" key="GridCell.Tab.0.center/0.25.1680.1025@0.25.1680.1025" timestamp="1642892664846" />
+    <state width="1675" height="273" key="GridCell.Tab.0.left" timestamp="1642892664845">
+      <screen x="0" y="25" width="1680" height="1025" />
+    </state>
+    <state width="1675" height="273" key="GridCell.Tab.0.left/0.25.1680.1025@0.25.1680.1025" timestamp="1642892664845" />
+    <state width="1675" height="273" key="GridCell.Tab.0.right" timestamp="1642892664846">
+      <screen x="0" y="25" width="1680" height="1025" />
+    </state>
+    <state width="1675" height="273" key="GridCell.Tab.0.right/0.25.1680.1025@0.25.1680.1025" timestamp="1642892664846" />
+  </component>
+</project>
