@@ -2,7 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fdbbb85d-d9ce-4ce8-b7a6-169cd5f29ce3" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../ArtistWebServer/src/main/java/ArtistsCrud.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ArtistWebServer/src/main/java/ArtistsServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Artist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/RepositoryCore-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/RepositoryCore-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Artist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Artist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T01-master/.idea/libraries/Maven__org_example_RepositoryCore_1_0_SNAPSHOT.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../T01-master/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T01-master/soen487.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/soen487.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T01-master/src/main/java/com/example/rest/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/src/main/java/com/example/rest/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T01-master/target/classes/com/example/rest/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/target/classes/com/example/rest/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T01-master/target/soen487-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/target/soen487-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +47,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="SvnConfiguration">
@@ -52,25 +64,29 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="662" y="220" key="#com.intellij.ide.util.MemberChooser" timestamp="1642891870908">
+    <state x="662" y="220" key="#com.intellij.ide.util.MemberChooser" timestamp="1642965172597">
       <screen x="0" y="25" width="1680" height="1025" />
     </state>
-    <state x="662" y="220" key="#com.intellij.ide.util.MemberChooser/0.25.1680.1025@0.25.1680.1025" timestamp="1642891870908" />
-    <state width="1675" height="273" key="GridCell.Tab.0.bottom" timestamp="1642892664847">
+    <state x="662" y="220" key="#com.intellij.ide.util.MemberChooser/0.25.1680.1025@0.25.1680.1025" timestamp="1642965172597" />
+    <state width="1675" height="273" key="GridCell.Tab.0.bottom" timestamp="1642965611943">
       <screen x="0" y="25" width="1680" height="1025" />
     </state>
-    <state width="1675" height="273" key="GridCell.Tab.0.bottom/0.25.1680.1025@0.25.1680.1025" timestamp="1642892664847" />
-    <state width="1675" height="273" key="GridCell.Tab.0.center" timestamp="1642892664846">
+    <state width="1675" height="273" key="GridCell.Tab.0.bottom/0.25.1680.1025@0.25.1680.1025" timestamp="1642965611943" />
+    <state width="1675" height="273" key="GridCell.Tab.0.center" timestamp="1642965611942">
       <screen x="0" y="25" width="1680" height="1025" />
     </state>
-    <state width="1675" height="273" key="GridCell.Tab.0.center/0.25.1680.1025@0.25.1680.1025" timestamp="1642892664846" />
-    <state width="1675" height="273" key="GridCell.Tab.0.left" timestamp="1642892664845">
+    <state width="1675" height="273" key="GridCell.Tab.0.center/0.25.1680.1025@0.25.1680.1025" timestamp="1642965611942" />
+    <state width="1675" height="273" key="GridCell.Tab.0.left" timestamp="1642965611942">
       <screen x="0" y="25" width="1680" height="1025" />
     </state>
-    <state width="1675" height="273" key="GridCell.Tab.0.left/0.25.1680.1025@0.25.1680.1025" timestamp="1642892664845" />
-    <state width="1675" height="273" key="GridCell.Tab.0.right" timestamp="1642892664846">
+    <state width="1675" height="273" key="GridCell.Tab.0.left/0.25.1680.1025@0.25.1680.1025" timestamp="1642965611942" />
+    <state width="1675" height="273" key="GridCell.Tab.0.right" timestamp="1642965611943">
       <screen x="0" y="25" width="1680" height="1025" />
     </state>
-    <state width="1675" height="273" key="GridCell.Tab.0.right/0.25.1680.1025@0.25.1680.1025" timestamp="1642892664846" />
+    <state width="1675" height="273" key="GridCell.Tab.0.right/0.25.1680.1025@0.25.1680.1025" timestamp="1642965611943" />
+    <state x="307" y="151" key="new project wizard" timestamp="1642977939245">
+      <screen x="0" y="25" width="1680" height="1025" />
+    </state>
+    <state x="307" y="151" key="new project wizard/0.25.1680.1025@0.25.1680.1025" timestamp="1642977939245" />
   </component>
 </project>
