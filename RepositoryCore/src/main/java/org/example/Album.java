@@ -9,6 +9,7 @@ public class Album {
     private String nickname;
 
 
+
     public String getCode() {
         return code;
     }
