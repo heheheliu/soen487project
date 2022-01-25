@@ -4,30 +4,7 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdbbb85d-d9ce-4ce8-b7a6-169cd5f29ce3" name="Default Changelist" comment="tony">
-      <change afterPath="$PROJECT_DIR$/../ArtistWebServer/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RepositoryCore.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../T01-master/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../T01-master/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../T01-master/src/main/java/com/example/rest/AlbumCrud.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../T01-master/src/main/java/com/example/rest/AlbumServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Album.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Album.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/log4j2.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Album.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Album.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/MainApp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/MyRouteBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/soen487.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/soen487.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/src/main/java/com/example/rest/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/src/main/java/com/example/rest/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/target/classes/com/example/rest/ArtistsCrud.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/target/classes/com/example/rest/ArtistsServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/target/classes/com/example/rest/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/target/classes/com/example/rest/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/target/soen487-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/target/soen487-1.0-SNAPSHOT.jar" afterDir="false" />
-    </list>
+    <list default="true" id="fdbbb85d-d9ce-4ce8-b7a6-169cd5f29ce3" name="Default Changelist" comment="tony" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -3,12 +3,13 @@ package com.example.rest;
 import org.example.Album;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class AlbumCrud {
 
-    private static List<Album> albums = new ArrayList<>();
+    private static List<Album> albums = Collections.synchronizedList(new ArrayList<>());
 
 //    public AlbumCrud(){
 //        albums = new ArrayList<>();
