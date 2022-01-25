@@ -1,6 +1,8 @@
 package org.example;
 
-public class Artist {
+import java.io.Serializable;
+
+public class Artist implements Serializable, Comparable<Artist>{
     private String nickName; // uniquely string, main key
     private String firstName;
     private String lastName;
@@ -53,5 +55,10 @@ public class Artist {
                 ", lastName='" + lastName + '\'' +
                 ", shortBio='" + shortBio + '\'' +
                 '}';
+    }
+
+    @Override
+    public int compareTo(Artist o) {
+        return this.nickName.compareTo(o.nickName);
     }
 }
