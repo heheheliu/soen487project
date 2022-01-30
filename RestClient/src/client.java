@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class client {
@@ -10,7 +11,8 @@ public class client {
             /**
              * display menu options
              */
-            System.out.println("\nWhat do you want to do? (choose the menu number");
+            System.out.println("\nWhat do you want to do? (choose the menu number)" +
+                    "");
             System.out.println("\t1. Artists");
             System.out.println("\t2. Albums");
             System.out.println("\t3. Quit");
@@ -18,8 +20,17 @@ public class client {
             /**
              * accept user choice and make sure it's valid
              */
-            menuOption = keyIn.nextInt();
-            if (menuOption > 3 || menuOption < 1) {
+            boolean isInteger = false;
+            try {
+                menuOption = keyIn.nextInt();
+                isInteger = true;
+            } catch (InputMismatchException e) {
+                System.out.println("You should enter an integer.");
+                keyIn.nextLine();
+            }
+            if (isInteger == false) {
+                continue;
+            } else if (menuOption > 3 || menuOption < 1) {
                 System.out.println("Invalid option! Please choose again.");
             } else {
                 switch(menuOption) {
@@ -38,8 +49,17 @@ public class client {
                             /**
                              * accept user choice and make sure it's valid
                              */
-                            submenuOption = keyIn.nextInt();
-                            if (submenuOption > 6 || submenuOption < 1) {
+                            boolean isIntSub1 = false;
+                            try {
+                                submenuOption = keyIn.nextInt();
+                                isIntSub1 = true;
+                            } catch (InputMismatchException e) {
+                                System.out.println("You should enter an integer.");
+                                keyIn.nextLine();
+                            }
+                            if (isIntSub1 == false) {
+                                continue;
+                            } else if (submenuOption > 6 || submenuOption < 1) {
                                 System.out.println("Invalid option! Please choose again.");
                             } else {
                                 int exit = 0;
@@ -82,8 +102,17 @@ public class client {
                             System.out.println("\t5. delete album");
                             System.out.println("\t6. go back");
 
-                            submenuOption = keyIn.nextInt();
-                            if (submenuOption > 6 || submenuOption < 1) {
+                            boolean isIntSub2 = false;
+                            try {
+                                submenuOption = keyIn.nextInt();
+                                isIntSub2 = true;
+                            } catch (InputMismatchException e) {
+                                System.out.println("You should enter an integer.");
+                                keyIn.nextLine();
+                            }
+                            if (isIntSub2 == false) {
+                                continue;
+                            } else if (submenuOption > 6 || submenuOption < 1) {
                                 System.out.println("Invalid option! Please choose again.");
                             } else {
                                 int exit = 0;
