@@ -1,12 +1,118 @@
+import org.apache.http.client.methods.*;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class client {
-    public static void main(String[] args) {
+
+    public static void doGet(String url) throws Exception{
+
+        CloseableHttpClient httpclient = HttpClients.createDefault();
+
+        HttpGet httpGet = new HttpGet(url);
+        CloseableHttpResponse response = null;
+        try {
+
+            response = httpclient.execute(httpGet);
+
+            if (response.getStatusLine().getStatusCode() == 200) {
+
+                String content = EntityUtils.toString(response.getEntity(), "UTF-8");
+
+                System.out.println(content);
+            }
+        } finally {
+            if (response != null) {
+                response.close();
+            }
+
+            httpclient.close();
+        }
+
+    }
+
+    public static void doPost(String url, String data) throws IOException {
+
+        CloseableHttpClient httpclient = HttpClients.createDefault();
+
+        HttpPost httpPost = new HttpPost(url + "/" + data);
+        CloseableHttpResponse response = null;
+        try {
+
+            response = httpclient.execute(httpPost);
+
+            if (response.getStatusLine().getStatusCode() == 200) {
+                String content = EntityUtils.toString(response.getEntity(), "UTF-8");
+                System.out.println(content);
+            }
+        } finally {
+            if (response != null) {
+                response.close();
+            }
+
+            httpclient.close();
+        }
+    }
+
+    public static void doPut(String url, String data) throws IOException {
+
+        CloseableHttpClient httpclient = HttpClients.createDefault();
+
+        HttpPut httpPut = new HttpPut(url + "/" + data);
+        CloseableHttpResponse response = null;
+        try {
+
+            response = httpclient.execute(httpPut);
+
+            if (response.getStatusLine().getStatusCode() == 200) {
+                String content = EntityUtils.toString(response.getEntity(), "UTF-8");
+                System.out.println(content);
+            }
+        } finally {
+            if (response != null) {
+                response.close();
+            }
+
+            httpclient.close();
+        }
+    }
+
+    public static void doDelete(String url, String data) throws IOException {
+
+        CloseableHttpClient httpclient = HttpClients.createDefault();
+
+        HttpDelete httpDelete = new HttpDelete(url + "/" + data);
+        CloseableHttpResponse response = null;
+        try {
+
+            response = httpclient.execute(httpDelete);
+
+            if (response.getStatusLine().getStatusCode() == 200) {
+                String content = EntityUtils.toString(response.getEntity(), "UTF-8");
+                System.out.println(content);
+            }
+        } finally {
+            if (response != null) {
+                response.close();
+            }
+
+            httpclient.close();
+        }
+    }
+
+    public static void main(String[] args) throws Exception {
         Scanner keyIn = new Scanner(System.in);
         int menuOption = 0;
         int submenuOption = 0;
-
+        final String artistUrl = "localhost:8181/ArtistWebServer_war/Artist";
+        final String albumUrl = "localhost:8080/myapp/albums";
         do {
             /**
              * display menu options
@@ -63,24 +169,36 @@ public class client {
                                 System.out.println("Invalid option! Please choose again.");
                             } else {
                                 int exit = 0;
+                                Scanner sc = new Scanner(System.in);
+                                String info = "";
                                 switch(submenuOption) {
                                     case 1:
-                                        System.out.println("1");
+                                        String data = "";
+                                        doGet(artistUrl);
                                         break;
                                     case 2:
-                                        System.out.println("2");
+                                        System.out.println("enter artist nickname:");
+                                        String nickName = sc.next();
+                                        doGet(artistUrl + "/" + nickName);
                                         break;
                                     case 3:
-                                        System.out.println("3");
+                                        System.out.println("enter new artist info:");
+                                        info = sc.next();
+                                        doPost(artistUrl, info);
                                         break;
                                     case 4:
-                                        System.out.println("4");
+                                        System.out.println("enter artist new info:");
+                                        info = sc.next();
+                                        doPut(artistUrl, info);
                                         break;
                                     case 5:
-                                        System.out.println("5");
+                                        System.out.println("enter artist nickname:");
+                                        nickName = sc.next();
+                                        doDelete(artistUrl, nickName);
                                         break;
                                     case 6:
                                         exit = 1;
+                                        sc.close();
                                         break;
                                 }
                                 if (exit == 1) {
