@@ -1,7 +1,54 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdbbb85d-d9ce-4ce8-b7a6-169cd5f29ce3" name="Default Changelist" comment="" />
+    <list default="true" id="fdbbb85d-d9ce-4ce8-b7a6-169cd5f29ce3" name="Default Changelist" comment="tony">
+      <change afterPath="$PROJECT_DIR$/../ArtistWebServer/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../ArtistWebServer/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/RepositoryCore.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Album.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/classes/org/example/Album.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RestClient/RestClient.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RestClient/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../RestClient/src/client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../T01-master/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../T01-master/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../T01-master/src/main/java/com/example/rest/AlbumCrud.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../T01-master/src/main/java/com/example/rest/AlbumServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../T01-master/target/classes/com/example/rest/AlbumCrud.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../T01-master/target/classes/com/example/rest/AlbumServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer.war" beforeDir="false" afterPath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer.war" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer/WEB-INF/classes/ArtistsCrud.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer/WEB-INF/classes/ArtistsCrud.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer/WEB-INF/classes/ArtistsServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer/WEB-INF/classes/ArtistsServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer/WEB-INF/lib/RepositoryCore-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer/WEB-INF/lib/RepositoryCore-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ArtistWebServer/target/classes/ArtistsCrud.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ArtistWebServer/target/classes/ArtistsCrud.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ArtistWebServer/target/classes/ArtistsServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ArtistWebServer/target/classes/ArtistsServer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ArtistWebServer/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../ArtistWebServer/target/maven-archiver/pom.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ArtistWebServer/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../ArtistWebServer/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Artist.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/RepositoryCore-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/RepositoryCore-1.0-SNAPSHOT.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/log4j2.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Artist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Artist.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/MainApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/example/MyRouteBuilder.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T01-master/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T01-master/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T01-master/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T01-master/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T01-master/soen487.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/soen487.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T01-master/src/main/java/com/example/rest/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/src/main/java/com/example/rest/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T01-master/target/classes/com/example/rest/ArtistsCrud.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T01-master/target/classes/com/example/rest/ArtistsServer.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T01-master/target/classes/com/example/rest/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/target/classes/com/example/rest/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../T01-master/target/soen487-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/target/soen487-1.0-SNAPSHOT.jar" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,26 +64,26 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="MavenImportPreferences">
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="importAutomatically" value="true" />
-      </MavenImportingSettings>
-    </option>
-  </component>
   <component name="ProjectId" id="244ZF3DACUp1aRT3hwiucw6dnH9" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -47,33 +94,36 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1642891711558</updated>
+      <workItem from="1643072449217" duration="6013000" />
+      <workItem from="1644183497407" duration="228000" />
     </task>
+    <task id="LOCAL-00001" summary="tony">
+      <created>1643073493939</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1643073493939</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="662" y="220" key="#com.intellij.ide.util.MemberChooser" timestamp="1642965172597">
-      <screen x="0" y="25" width="1680" height="1025" />
-    </state>
-    <state x="662" y="220" key="#com.intellij.ide.util.MemberChooser/0.25.1680.1025@0.25.1680.1025" timestamp="1642965172597" />
-    <state width="1675" height="273" key="GridCell.Tab.0.bottom" timestamp="1642992894445">
-      <screen x="0" y="25" width="1680" height="1025" />
-    </state>
-    <state width="1675" height="273" key="GridCell.Tab.0.bottom/0.25.1680.1025@0.25.1680.1025" timestamp="1642992894445" />
-    <state width="1675" height="273" key="GridCell.Tab.0.center" timestamp="1642992894444">
-      <screen x="0" y="25" width="1680" height="1025" />
-    </state>
-    <state width="1675" height="273" key="GridCell.Tab.0.center/0.25.1680.1025@0.25.1680.1025" timestamp="1642992894444" />
-    <state width="1675" height="273" key="GridCell.Tab.0.left" timestamp="1642992894444">
-      <screen x="0" y="25" width="1680" height="1025" />
-    </state>
-    <state width="1675" height="273" key="GridCell.Tab.0.left/0.25.1680.1025@0.25.1680.1025" timestamp="1642992894444" />
-    <state width="1675" height="273" key="GridCell.Tab.0.right" timestamp="1642992894445">
-      <screen x="0" y="25" width="1680" height="1025" />
-    </state>
-    <state width="1675" height="273" key="GridCell.Tab.0.right/0.25.1680.1025@0.25.1680.1025" timestamp="1642992894445" />
-    <state x="307" y="151" key="new project wizard" timestamp="1642977939245">
-      <screen x="0" y="25" width="1680" height="1025" />
-    </state>
-    <state x="307" y="151" key="new project wizard/0.25.1680.1025@0.25.1680.1025" timestamp="1642977939245" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="tony" />
+    <option name="LAST_COMMIT_MESSAGE" value="tony" />
   </component>
 </project>
