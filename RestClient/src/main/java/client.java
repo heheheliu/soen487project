@@ -6,9 +6,6 @@ import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.glassfish.jersey.client.ClientConfig;
-import org.glassfish.jersey.filter.LoggingFilter;
-
 
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
@@ -24,29 +21,22 @@ public class client {
     public static void printResponse(CloseableHttpClient httpClient, HttpUriRequest httpMethod) throws IOException {
         CloseableHttpResponse response = null;
         try {
-
             response = httpClient.execute(httpMethod);
-
             if (response.getStatusLine().getStatusCode() == 200) {
-
                 String content = EntityUtils.toString(response.getEntity(), "UTF-8");
-
                 System.out.println(content);
             }
         } finally {
             if (response != null) {
                 response.close();
             }
-
             httpClient.close();
         }
     }
     public static void getArtist(String url) throws Exception{
 
         CloseableHttpClient httpClient = HttpClients.createDefault();
-
         HttpGet httpGet = new HttpGet(url);
-
         printResponse(httpClient,httpGet);
     }
 
@@ -59,7 +49,7 @@ public class client {
         printResponse(httpClient, httpPost);
     }
 
-    public static void modifyArtist(String url, String data) throws IOException {
+    public static void updateArtist(String url, String data) throws IOException {
 
         CloseableHttpClient httpClient = HttpClients.createDefault();
 
@@ -79,20 +69,49 @@ public class client {
         printResponse(httpClient, httpDelete);
     }
 
-    public static void addAlbum() throws IOException {
-        Client client = ClientBuilder.newClient( new ClientConfig().register( LoggingFilter.class ));
-        WebTarget webTarget = ((javax.ws.rs.client.Client) client).target("http://localhost:8080/myapp").path("albums/code123/title/description/1990/name");
+
+    public static void getAlbum(String url, String path) throws IOException {
+        Client client = ClientBuilder.newBuilder().newClient();
+        WebTarget webTarget =  client.target(url).path(path);
+
+        Invocation.Builder invocationBuilder =  webTarget.request();
+        Response response = invocationBuilder.get();
+        String content = IOUtils.readStringFromStream((InputStream) response.getEntity());
+
+        System.out.println(content);
+    }
+
+    public static void addAlbum(String url, String data) throws IOException {
+        Client client = ClientBuilder.newClient();
+        WebTarget webTarget = ((javax.ws.rs.client.Client) client).target(url).path("albums/" + data);
 
         Invocation.Builder invocationBuilder =  webTarget.request(MediaType.TEXT_PLAIN);
-        Response response = invocationBuilder.post(Entity.entity("code123/title/description/1990/name",MediaType.TEXT_PLAIN));
+        Response response = invocationBuilder.post(Entity.entity(data,MediaType.TEXT_PLAIN));
 
-//                                        Album albums = response.readEntity(Album.class);
-//                                        List<Album> listOfEmployees = albums.getEmployeeList();
-        String s = IOUtils.readStringFromStream((InputStream) response.getEntity());
-        System.out.println(response.getStatus());
-        System.out.println(response);
-        System.out.println(response.toString());
-        System.out.println(s);
+        String content = IOUtils.readStringFromStream((InputStream) response.getEntity());
+        System.out.println(content);
+    }
+
+    public static void updateAlbum(String url, String data) throws IOException {
+        Client client = ClientBuilder.newClient();
+        WebTarget webTarget = ((javax.ws.rs.client.Client) client).target(url).path("albums/" + data);
+
+        Invocation.Builder invocationBuilder =  webTarget.request(MediaType.TEXT_PLAIN);
+        Response response = invocationBuilder.put(Entity.entity(data,MediaType.TEXT_PLAIN));
+
+        String content = IOUtils.readStringFromStream((InputStream) response.getEntity());
+        System.out.println(content);
+    }
+
+    public static void deleteAlbum(String url, String code) throws IOException, URISyntaxException {
+        Client client = ClientBuilder.newClient();
+        WebTarget webTarget = ((javax.ws.rs.client.Client) client).target(url).path("albums/" + code);
+
+        Invocation.Builder invocationBuilder =  webTarget.request(MediaType.TEXT_PLAIN);
+        Response response = invocationBuilder.delete();
+
+        String content = IOUtils.readStringFromStream((InputStream) response.getEntity());
+        System.out.println(content);
     }
 
     public static void main(String[] args) throws Exception {
@@ -100,7 +119,7 @@ public class client {
         int menuOption = 0;
         int submenuOption = 0;
         final String artistUrl = "http://localhost:8181/ArtistWebServer_war/Artist";
-        final String albumUrl = "http://localhost:8080/myapp/albums";
+        final String albumUrl = "http://localhost:8080/myapp";
         do {
             /**
              * display menu options
@@ -176,7 +195,7 @@ public class client {
                                     case 4:
                                         System.out.println("enter artist new info:");
                                         info = keyIn.next();
-                                        modifyArtist(artistUrl, info);
+                                        updateArtist(artistUrl, info);
                                         break;
                                     case 5:
                                         System.out.println("enter artist nickname:");
@@ -222,45 +241,27 @@ public class client {
                                 int exit = 0;
                                 switch(submenuOption) {
                                     case 1:
-//                                        Client client = ClientBuilder.newBuilder().newClient();
-//                                        WebTarget target = client.target("http://localhost:8080/myapp/albums");
-////                                        target = target.path("");
-////                                        target = target.path("").queryParam("a", "avalue");
-//                                        Invocation.Builder builder = target.request(MediaType.APPLICATION_JSON);
-//                                        Response response = builder.get();
-//                                        Album albums = client
-//                                                .target(albumUrl)
-//                                                .path("/isbn123")
-//                                                .request(MediaType.APPLICATION_JSON)
-//                                                .get(Album.class);
-//                                        System.out.println(albums.toString());
-                                        Client client = ClientBuilder.newClient( new ClientConfig().register( LoggingFilter.class ));
-                                        WebTarget webTarget = ((javax.ws.rs.client.Client) client).target("http://localhost:8080/myapp").path("albums");
-
-                                                Invocation.Builder invocationBuilder =  webTarget.request(MediaType.TEXT_PLAIN);
-                                        Response response = invocationBuilder.get();
-
-//                                        Album albums = response.readEntity(Album.class);
-//                                        List<Album> listOfEmployees = albums.getEmployeeList();
-                                        String s = IOUtils.readStringFromStream((InputStream) response.getEntity());
-                                        System.out.println(response.getStatus());
-                                        System.out.println(response);
-                                        System.out.println(response.toString());
-                                        System.out.println(s);
-
-
+                                        getAlbum(albumUrl, "albums");
                                         break;
                                     case 2:
-                                        System.out.println("2");
+                                        System.out.println("enter album code:");
+                                        String code = keyIn.next();
+                                        getAlbum(albumUrl, "albums/" + code);
                                         break;
                                     case 3:
-                                        addAlbum();
+                                        System.out.println("enter album info:");
+                                        String newAlbum = keyIn.next();
+                                        addAlbum(albumUrl, newAlbum);
                                         break;
                                     case 4:
-                                        System.out.println("4");
+                                        System.out.println("enter album new info:");
+                                        String updateAlbum = keyIn.next();
+                                        updateAlbum(albumUrl, updateAlbum);
                                         break;
                                     case 5:
-                                        System.out.println("5");
+                                        System.out.println("enter album code:");
+                                        String codeDelete = keyIn.next();
+                                        deleteAlbum(albumUrl, codeDelete);
                                         break;
                                     case 6:
                                         exit = 1;
