@@ -1,13 +1,32 @@
+
+
+
+import org.apache.cxf.helpers.IOUtils;
+import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
+import org.apache.cxf.jaxrs.client.WebClient;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.*;
+import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
+import org.example.Album;
+import org.glassfish.jersey.client.ClientConfig;
+import org.glassfish.jersey.filter.LoggingFilter;
 
+
+import javax.ws.rs.client.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
 
 public class client {
@@ -42,7 +61,8 @@ public class client {
 
         CloseableHttpClient httpclient = HttpClients.createDefault();
 
-        HttpPost httpPost = new HttpPost(url + "/" + data);
+        HttpPost httpPost = new HttpPost(url);
+        httpPost.setEntity(new StringEntity("nickName=bbb&firstName=b&lastName=c"));
         CloseableHttpResponse response = null;
         try {
 
@@ -106,13 +126,36 @@ public class client {
             httpclient.close();
         }
     }
+//    public Album getJsonEmployee(int id) {
+//        return client
+//                .target(REST_URI)
+//                .path(String.valueOf(id))
+//                .request(MediaType.APPLICATION_JSON)
+//                .get(Employee.class);
+//    }
+
+    public static void addAlbum() throws IOException {
+        Client client = ClientBuilder.newClient( new ClientConfig().register( LoggingFilter.class ));
+        WebTarget webTarget = ((javax.ws.rs.client.Client) client).target("http://localhost:8080/myapp").path("albums/code123/title/description/1990/name");
+
+        Invocation.Builder invocationBuilder =  webTarget.request(MediaType.TEXT_PLAIN);
+        Response response = invocationBuilder.post(Entity.entity("code123/title/description/1990/name",MediaType.TEXT_PLAIN));
+
+//                                        Album albums = response.readEntity(Album.class);
+//                                        List<Album> listOfEmployees = albums.getEmployeeList();
+        String s = IOUtils.readStringFromStream((InputStream) response.getEntity());
+        System.out.println(response.getStatus());
+        System.out.println(response);
+        System.out.println(response.toString());
+        System.out.println(s);
+    }
 
     public static void main(String[] args) throws Exception {
         Scanner keyIn = new Scanner(System.in);
         int menuOption = 0;
         int submenuOption = 0;
-        final String artistUrl = "localhost:8181/ArtistWebServer_war/Artist";
-        final String albumUrl = "localhost:8080/myapp/albums";
+        final String artistUrl = "http://localhost:8181/ArtistWebServer_war/Artist";
+        final String albumUrl = "http://localhost:8080/myapp/albums";
         do {
             /**
              * display menu options
@@ -236,13 +279,39 @@ public class client {
                                 int exit = 0;
                                 switch(submenuOption) {
                                     case 1:
-                                        System.out.println("1");
+//                                        Client client = ClientBuilder.newBuilder().newClient();
+//                                        WebTarget target = client.target("http://localhost:8080/myapp/albums");
+////                                        target = target.path("");
+////                                        target = target.path("").queryParam("a", "avalue");
+//                                        Invocation.Builder builder = target.request(MediaType.APPLICATION_JSON);
+//                                        Response response = builder.get();
+//                                        Album albums = client
+//                                                .target(albumUrl)
+//                                                .path("/isbn123")
+//                                                .request(MediaType.APPLICATION_JSON)
+//                                                .get(Album.class);
+//                                        System.out.println(albums.toString());
+                                        Client client = ClientBuilder.newClient( new ClientConfig().register( LoggingFilter.class ));
+                                        WebTarget webTarget = ((javax.ws.rs.client.Client) client).target("http://localhost:8080/myapp").path("albums");
+
+                                                Invocation.Builder invocationBuilder =  webTarget.request(MediaType.TEXT_PLAIN);
+                                        Response response = invocationBuilder.get();
+
+//                                        Album albums = response.readEntity(Album.class);
+//                                        List<Album> listOfEmployees = albums.getEmployeeList();
+                                        String s = IOUtils.readStringFromStream((InputStream) response.getEntity());
+                                        System.out.println(response.getStatus());
+                                        System.out.println(response);
+                                        System.out.println(response.toString());
+                                        System.out.println(s);
+
+
                                         break;
                                     case 2:
                                         System.out.println("2");
                                         break;
                                     case 3:
-                                        System.out.println("3");
+                                        addAlbum();
                                         break;
                                     case 4:
                                         System.out.println("4");
