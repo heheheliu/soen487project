@@ -1,18 +1,11 @@
 
-
-
 import org.apache.cxf.helpers.IOUtils;
-import org.apache.cxf.jaxrs.client.JAXRSClientFactory;
-import org.apache.cxf.jaxrs.client.WebClient;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.*;
+import org.apache.http.client.utils.URIBuilder;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
-import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
-import org.example.Album;
 import org.glassfish.jersey.client.ClientConfig;
 import org.glassfish.jersey.filter.LoggingFilter;
 
@@ -20,119 +13,71 @@ import org.glassfish.jersey.filter.LoggingFilter;
 import javax.ws.rs.client.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
+import java.net.URISyntaxException;
 import java.util.InputMismatchException;
-import java.util.List;
 import java.util.Scanner;
 
 public class client {
 
-    public static void doGet(String url) throws Exception{
+    public static void printResponse(CloseableHttpClient httpClient, HttpUriRequest httpMethod) throws IOException {
+        CloseableHttpResponse response = null;
+        try {
 
-        CloseableHttpClient httpclient = HttpClients.createDefault();
+            response = httpClient.execute(httpMethod);
+
+            if (response.getStatusLine().getStatusCode() == 200) {
+
+                String content = EntityUtils.toString(response.getEntity(), "UTF-8");
+
+                System.out.println(content);
+            }
+        } finally {
+            if (response != null) {
+                response.close();
+            }
+
+            httpClient.close();
+        }
+    }
+    public static void getArtist(String url) throws Exception{
+
+        CloseableHttpClient httpClient = HttpClients.createDefault();
 
         HttpGet httpGet = new HttpGet(url);
-        CloseableHttpResponse response = null;
-        try {
 
-            response = httpclient.execute(httpGet);
-
-            if (response.getStatusLine().getStatusCode() == 200) {
-
-                String content = EntityUtils.toString(response.getEntity(), "UTF-8");
-
-                System.out.println(content);
-            }
-        } finally {
-            if (response != null) {
-                response.close();
-            }
-
-            httpclient.close();
-        }
-
+        printResponse(httpClient,httpGet);
     }
 
-    public static void doPost(String url, String data) throws IOException {
+    public static void addArtist(String url, String data) throws IOException {
 
-        CloseableHttpClient httpclient = HttpClients.createDefault();
+        CloseableHttpClient httpClient = HttpClients.createDefault();
 
         HttpPost httpPost = new HttpPost(url);
-        httpPost.setEntity(new StringEntity("nickName=bbb&firstName=b&lastName=c"));
-        CloseableHttpResponse response = null;
-        try {
-
-            response = httpclient.execute(httpPost);
-
-            if (response.getStatusLine().getStatusCode() == 200) {
-                String content = EntityUtils.toString(response.getEntity(), "UTF-8");
-                System.out.println(content);
-            }
-        } finally {
-            if (response != null) {
-                response.close();
-            }
-
-            httpclient.close();
-        }
+        httpPost.setEntity(new StringEntity(data));
+        printResponse(httpClient, httpPost);
     }
 
-    public static void doPut(String url, String data) throws IOException {
+    public static void modifyArtist(String url, String data) throws IOException {
 
-        CloseableHttpClient httpclient = HttpClients.createDefault();
+        CloseableHttpClient httpClient = HttpClients.createDefault();
 
-        HttpPut httpPut = new HttpPut(url + "/" + data);
-        CloseableHttpResponse response = null;
-        try {
+        HttpPut httpPut = new HttpPut(url);
+        httpPut.setEntity(new StringEntity(data));
 
-            response = httpclient.execute(httpPut);
-
-            if (response.getStatusLine().getStatusCode() == 200) {
-                String content = EntityUtils.toString(response.getEntity(), "UTF-8");
-                System.out.println(content);
-            }
-        } finally {
-            if (response != null) {
-                response.close();
-            }
-
-            httpclient.close();
-        }
+        printResponse(httpClient, httpPut);
     }
 
-    public static void doDelete(String url, String data) throws IOException {
+    public static void deleteArtist(String url, String data) throws IOException, URISyntaxException {
 
-        CloseableHttpClient httpclient = HttpClients.createDefault();
+        CloseableHttpClient httpClient = HttpClients.createDefault();
+        URIBuilder builder = new URIBuilder(url);
+        builder.setParameter("nickName", data);
+        HttpDelete httpDelete = new HttpDelete(builder.build());
 
-        HttpDelete httpDelete = new HttpDelete(url + "/" + data);
-        CloseableHttpResponse response = null;
-        try {
-
-            response = httpclient.execute(httpDelete);
-
-            if (response.getStatusLine().getStatusCode() == 200) {
-                String content = EntityUtils.toString(response.getEntity(), "UTF-8");
-                System.out.println(content);
-            }
-        } finally {
-            if (response != null) {
-                response.close();
-            }
-
-            httpclient.close();
-        }
+        printResponse(httpClient, httpDelete);
     }
-//    public Album getJsonEmployee(int id) {
-//        return client
-//                .target(REST_URI)
-//                .path(String.valueOf(id))
-//                .request(MediaType.APPLICATION_JSON)
-//                .get(Employee.class);
-//    }
 
     public static void addAlbum() throws IOException {
         Client client = ClientBuilder.newClient( new ClientConfig().register( LoggingFilter.class ));
@@ -212,36 +157,34 @@ public class client {
                                 System.out.println("Invalid option! Please choose again.");
                             } else {
                                 int exit = 0;
-                                Scanner sc = new Scanner(System.in);
                                 String info = "";
                                 switch(submenuOption) {
                                     case 1:
                                         String data = "";
-                                        doGet(artistUrl);
+                                        getArtist(artistUrl);
                                         break;
                                     case 2:
                                         System.out.println("enter artist nickname:");
-                                        String nickName = sc.next();
-                                        doGet(artistUrl + "/" + nickName);
+                                        String nickName = keyIn.next();
+                                        getArtist(artistUrl + "?nickName=" + nickName);
                                         break;
                                     case 3:
                                         System.out.println("enter new artist info:");
-                                        info = sc.next();
-                                        doPost(artistUrl, info);
+                                        info = keyIn.next();
+                                        addArtist(artistUrl, info);
                                         break;
                                     case 4:
                                         System.out.println("enter artist new info:");
-                                        info = sc.next();
-                                        doPut(artistUrl, info);
+                                        info = keyIn.next();
+                                        modifyArtist(artistUrl, info);
                                         break;
                                     case 5:
                                         System.out.println("enter artist nickname:");
-                                        nickName = sc.next();
-                                        doDelete(artistUrl, nickName);
+                                        nickName = keyIn.next();
+                                        deleteArtist(artistUrl, nickName);
                                         break;
                                     case 6:
                                         exit = 1;
-                                        sc.close();
                                         break;
                                 }
                                 if (exit == 1) {
@@ -331,6 +274,7 @@ public class client {
                         break;
                     case 3:
                         System.out.println("Program terminated!");
+                        keyIn.close();
                         System.exit(0);
                 }
             }
