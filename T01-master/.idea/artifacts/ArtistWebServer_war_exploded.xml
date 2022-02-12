@@ -1,0 +1,34 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="ArtistWebServer:war exploded">
+    <output-path>$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>ArtistWebServer</module>
+        <packaging>war</packaging>
+        <unpackNestedArchives>false</unpackNestedArchives>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ArtistWebServer" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="archive" name="RepositoryCore-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="RepositoryCore" />
+          </element>
+          <element id="library" level="project" name="Maven: javax.servlet:javax.servlet-api:4.0.1" />
+          <element id="library" level="project" name="Maven: org.apache.httpcomponents:httpcore:4.4.13" />
+          <element id="library" level="project" name="Maven: org.mortbay.jetty:jetty:6.1.25" />
+          <element id="library" level="project" name="Maven: org.mortbay.jetty:jetty-util:6.1.25" />
+          <element id="library" level="project" name="Maven: org.mortbay.jetty:servlet-api:2.5-20081211" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="ArtistWebServer/web/Web" />
+    </root>
+  </artifact>
+</component>

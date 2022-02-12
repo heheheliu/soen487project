@@ -5,49 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fdbbb85d-d9ce-4ce8-b7a6-169cd5f29ce3" name="Default Changelist" comment="tony">
-      <change afterPath="$PROJECT_DIR$/../ArtistWebServer/.idea/jpa-buddy.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../ArtistWebServer/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/RepositoryCore.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/example/Album.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/org/example/Album.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RestClient/RestClient.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RestClient/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../RestClient/src/client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../T01-master/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../T01-master/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../T01-master/src/main/java/com/example/rest/AlbumCrud.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../T01-master/src/main/java/com/example/rest/AlbumServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../T01-master/target/classes/com/example/rest/AlbumCrud.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../T01-master/target/classes/com/example/rest/AlbumServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer.war" beforeDir="false" afterPath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer/WEB-INF/classes/ArtistsCrud.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer/WEB-INF/classes/ArtistsCrud.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer/WEB-INF/classes/ArtistsServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer/WEB-INF/classes/ArtistsServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer/WEB-INF/lib/RepositoryCore-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../ArtistWebServer/target/ArtistWebServer/WEB-INF/lib/RepositoryCore-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ArtistWebServer/target/classes/ArtistsCrud.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ArtistWebServer/target/classes/ArtistsCrud.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ArtistWebServer/target/classes/ArtistsServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../ArtistWebServer/target/classes/ArtistsServer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ArtistWebServer/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../ArtistWebServer/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ArtistWebServer/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../ArtistWebServer/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Artist.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/Artist.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/RepositoryCore-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/target/RepositoryCore-1.0-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/log4j2.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/Artist.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/example/Artist.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/MainApp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/example/MyRouteBuilder.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/soen487.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/soen487.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/src/main/java/com/example/rest/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/src/main/java/com/example/rest/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/target/classes/com/example/rest/ArtistsCrud.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/target/classes/com/example/rest/ArtistsServer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/target/classes/com/example/rest/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/target/classes/com/example/rest/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../T01-master/target/soen487-1.0-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../T01-master/target/soen487-1.0-SNAPSHOT.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,6 +54,7 @@
       <updated>1642891711558</updated>
       <workItem from="1643072449217" duration="6013000" />
       <workItem from="1644183497407" duration="228000" />
+      <workItem from="1644200083100" duration="620000" />
     </task>
     <task id="LOCAL-00001" summary="tony">
       <created>1643073493939</created>

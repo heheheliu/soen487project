@@ -6,17 +6,8 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="soen487 (1)" />
-        <module name="RepositoryCore" />
-        <module name="ArtistWebServer" />
         <module name="soen487" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
-      <module name="ArtistWebServer" target="8" />
-      <module name="RepositoryCore" target="1.8" />
-      <module name="soen487" target="1.8" />
-      <module name="soen487 (1)" target="1.8" />
-    </bytecodeTargetLevel>
   </component>
 </project>

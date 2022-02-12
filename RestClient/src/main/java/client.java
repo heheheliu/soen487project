@@ -71,7 +71,7 @@ public class client {
 
 
     public static void getAlbum(String url, String path) throws IOException {
-        Client client = ClientBuilder.newBuilder().newClient();
+        Client client = ClientBuilder.newClient();
         WebTarget webTarget =  client.target(url).path(path);
 
         Invocation.Builder invocationBuilder =  webTarget.request();
