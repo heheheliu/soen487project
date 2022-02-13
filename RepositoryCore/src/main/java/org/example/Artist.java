@@ -1,11 +1,21 @@
 package org.example;
 
-import java.io.Serializable;
 
-public class Artist implements Serializable, Comparable<Artist>{
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "artist")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Artist {
+    @XmlElement
     private String nickName; // uniquely string, main key
+    @XmlElement
     private String firstName;
+    @XmlElement
     private String lastName;
+    @XmlElement
     private String shortBio;
 
     public Artist(String nickName, String firstName, String lastName, String shortBio) {
@@ -13,6 +23,9 @@ public class Artist implements Serializable, Comparable<Artist>{
         this.firstName = firstName;
         this.lastName = lastName;
         this.shortBio = shortBio;
+    }
+    public Artist(){
+
     }
 
     public String getNickName() {
@@ -57,7 +70,7 @@ public class Artist implements Serializable, Comparable<Artist>{
                 '}';
     }
 
-    @Override
+
     public int compareTo(Artist o) {
         return this.nickName.compareTo(o.nickName);
     }

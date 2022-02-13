@@ -1,14 +1,38 @@
 package org.example;
 
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlElement;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "album")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Album {
 
-    private String code;
+    @XmlElement
+    private String code;//primary key
+    @XmlElement
     private String title;
+    @XmlElement
     private String description;
+    @XmlElement
     private int year;
-    private String nickname;
+    @XmlElement
+    private Artist artist;
 
 
+    public Album(String code, String title, String description, int year, Artist artist) {
+        this.code = code;
+        this.title = title;
+        this.description = description;
+        this.year = year;
+        this.artist = artist;
+
+    }
+
+    public Album(){
+
+    }
 
     public String getCode() {
         return code;
@@ -42,13 +66,15 @@ public class Album {
         this.year = year;
     }
 
-    public String getNickname() {
-        return nickname;
+    public Artist getArtist() {
+        return artist;
     }
 
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
+    public void setArtist(Artist artist) {
+        this.artist = artist;
     }
+
+
 
     @Override
     public String toString() {
@@ -57,7 +83,7 @@ public class Album {
                 ", title='" + title + '\'' +
                 ", description='" + description + '\'' +
                 ", year=" + year +
-                ", nickname='" + nickname + '\'' +
+                ", artist='" + artist + '\'' +
                 '}';
     }
 }
