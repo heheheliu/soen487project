@@ -1,0 +1,13 @@
+
+
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:us="http://www.soen487.com/log-ws">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <us:getChangeLogsRequest>
+            <us:from>2020</us:from>
+            <us:to>2028</us:to>
+            <us:type>isrc</us:type>
+        </us:getChangeLogsRequest>
+    </soapenv:Body>
+</soapenv:Envelope>
