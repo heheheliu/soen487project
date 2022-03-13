@@ -20,26 +20,27 @@ public class AlbumServiceTestCase {
     void testGetAll(){
         albumService.getAllAlbum();
     }
-    @Test
-    void testSave(){
-        Album album = new Album();
-        album.setCode("21112uuu");
-        album.setTitle("yyy");
-        album.setDescription("ioiioio");
-        album.setYear(9090);
-        album.setAuthor("ppp");
-        albumService.createAlbum(album);
-    }
-    @Test
-    void testUpdate(){
-        Album album = new Album();
-        album.setCode("21112uuu");
-        album.setTitle("yyy2");
-        album.setDescription("ioiioio2");
-        album.setYear(90902);
-        album.setAuthor("ppp2");
-        albumService.updateAlbum(album);
-    }
+//    @Test
+//    void testSave(){
+//        Album album = new Album();
+//        album.setCode("21112uuu");
+//        album.setTitle("yyy");
+//        album.setDescription("ioiioio");
+//        album.setYear(9090);
+//        album.setAuthor("ppp");
+//
+//        albumService.createAlbum(album);
+//    }
+//    @Test
+//    void testUpdate(){
+//        Album album = new Album();
+//        album.setCode("21112uuu");
+//        album.setTitle("yyy2");
+//        album.setDescription("ioiioio2");
+//        album.setYear(90902);
+//        album.setAuthor("ppp2");
+//        albumService.updateAlbum(album);
+//    }
     @Test
     void testDelete(){
         albumService.deleteAlbum("21112uuu");

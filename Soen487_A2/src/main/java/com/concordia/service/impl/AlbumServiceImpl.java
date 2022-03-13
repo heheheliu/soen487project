@@ -10,25 +10,37 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.sql.Blob;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
 public class AlbumServiceImpl implements AlbumService {
 
+
     @Autowired
     private AlbumDao albumDao;
 
     @Override
-    public Boolean createAlbum(Album album) {
-        return albumDao.insert(album) > 0;
+    public String getTime(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
+        LocalDateTime now = LocalDateTime.now();
+        String date = formatter.format(now);
+        return date;
     }
 
     @Override
-    public Boolean updateAlbum(Album album) {
-        String code = album.getCode();
-        LambdaQueryWrapper<Album> lqw = new LambdaQueryWrapper<>();
-        lqw.eq(code!=null,Album::getCode,code);
-        return albumDao.update(album,lqw) > 0;
+    public Boolean createAlbum(String code, String title, String description, int year, String author, Blob cover) {
+        return albumDao.createAlbum(code, title, description, year, author, cover) > 0;
+    }
+
+    @Override
+    public Boolean updateAlbum(String code,String title, String description, int year, String author, Blob cover) {
+        if(code != null){
+            return albumDao.updateAlbum(code, title, description, year, author, cover) > 0;
+        }
+        return false;
+
     }
 
     @Override
