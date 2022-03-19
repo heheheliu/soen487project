@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/albums")
 public class AlbumController {
 
