@@ -44,6 +44,18 @@
           <el-input :placeholder="album.cover" v-model="album.cover">
             <template slot="prepend">Cover : </template>
           </el-input>
+          <!-- <el-upload
+            class="upload-demo"
+            action="https://jsonplaceholder.typicode.com/posts/"
+            :on-preview="handlePreview"
+            :on-remove="handleRemove"
+            :file-list="fileList"
+            :on-change="changeFileList"
+            list-type="picture">
+            <el-button size="small" type="primary">Click to upload</el-button>
+            <div slot="tip" class="el-upload__tip">jpg/png files with a size less than 500kb</div>
+          </el-upload>
+          {{fileList}} -->
         </div>
         <div class="item">
           <el-button type="success" plain @click="add">Add</el-button>
@@ -69,6 +81,7 @@ export default {
         cover: null,
       },
       result: "",
+      fileList: []
     };
   },
   methods: {
@@ -80,9 +93,7 @@ export default {
         await axios
           .post(`http://localhost:8866/albums`, this.album)
           .then((res) => {
-            console.log(res);
             this.result = res.data;
-            console.log(this.result);
           });
         if (this.result) {
           this.$notify({
@@ -103,6 +114,17 @@ export default {
         });
       }
     },
+    // handleRemove(file, fileList) {
+    //   console.log(file, fileList);
+    // },
+    // handlePreview(file) {
+    //   console.log(file);
+    //   console.log(this.fileList);
+    // },
+    // changeFileList(file, fileList) {
+    //   this.fileList = fileList;
+    //   this.album.cover = fileList[0].name;
+    // }
   },
 };
 </script>

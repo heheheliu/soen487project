@@ -32,30 +32,30 @@ public class AlbumController {
 
     @PostMapping
     public Boolean saveAlbum(@RequestBody Album album) throws SQLException {
-        Blob blob = null;
-        byte[] cover = album.getCover();
+        //Blob blob = null;
+        String cover = album.getCover();
         if(cover != null ){
-            blob = new SerialBlob(cover);
+            //blob = new SerialBlob(cover);
         }else{
             System.out.println("cover is empty");
         }
         albumService.createLogEntry(albumService.getTime(),"CREATE", album.getCode());
         return albumService.createAlbum(album.getCode(),album.getTitle(),album.getDescription(),album.getYear(),
-                album.getAuthor(),blob);
+                album.getAuthor(),cover);
     }
 
     @PutMapping
     public Boolean updateAlbum(@RequestBody Album album) throws SQLException {
-        Blob blob = null;
-        byte[] cover = album.getCover();
+        //Blob blob = null;
+        String cover = album.getCover();
         if(cover != null ){
-            blob = new SerialBlob(cover);
+            //blob = new SerialBlob(cover);
         }else{
             System.out.println("cover is empty");
         }
         albumService.createLogEntry(albumService.getTime(), "UPDATE", album.getCode());
         return albumService.updateAlbum(album.getCode(),album.getTitle(),album.getDescription(),album.getYear(),
-                album.getAuthor(),blob);
+                album.getAuthor(),cover);
     }
 
     @PutMapping("{code}")

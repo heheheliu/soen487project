@@ -30,12 +30,12 @@ public class AlbumServiceImpl implements AlbumService {
     }
 
     @Override
-    public Boolean createAlbum(String code, String title, String description, int year, String author, Blob cover) {
+    public Boolean createAlbum(String code, String title, String description, int year, String author, String cover) {
         return albumDao.createAlbum(code, title, description, year, author, cover) > 0;
     }
 
     @Override
-    public Boolean updateAlbum(String code,String title, String description, int year, String author, Blob cover) {
+    public Boolean updateAlbum(String code,String title, String description, int year, String author, String cover) {
         if(code != null){
             return albumDao.updateAlbum(code, title, description, year, author, cover) > 0;
         }

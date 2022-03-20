@@ -30,14 +30,14 @@ public interface AlbumDao extends BaseMapper<Album> {
 //
     @Insert("insert into album(code, title, description, year, author, cover)"+
             "values(#{code}, #{title},#{description},#{year},#{author},#{cover})")
-    public int createAlbum(String code, String title, String description, int year, String author, Blob cover);
+    public int createAlbum(String code, String title, String description, int year, String author, String cover);
 //
 //    @Insert("insert into artist(nickname,firstname,lastname,shortbio)" +
 //            "values(#{nickname},#{firstname},#{lastname},#{shortbio})")
 //    public int createArtist(String nickname,String firstname, String lastname, String shortbio);
     @Update("update album set title=#{title},description=#{description},year=#{year}," +
             "author=#{author},cover=#{cover} where code = #{code}")
-    public int updateAlbum(String code,String title, String description, int year, String author, Blob cover);
+    public int updateAlbum(String code,String title, String description, int year, String author, String cover);
 
 
     @Select("select * from logentry where type = #{type} and " +

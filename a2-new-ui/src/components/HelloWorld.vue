@@ -32,8 +32,8 @@
                   <div>Description: {{album.description}}</div>
                 </el-col>
                 <el-col :span="14">
-                  <div v-if="album.image">
-                    hello
+                  <div v-if="album.cover">
+                    <img :src="album.cover" style="width: 100px; height: 100px" />
                   </div>
                   <div v-else><el-empty :image-size="50" description="no image" style="padding:0px"></el-empty></div>
                 </el-col>
@@ -88,7 +88,6 @@ export default {
     async deleteAlbum(code) {
       await axios.delete(`http://localhost:8866/albums/${code}`).then((res)=>{
         this.result = res.data;
-        console.log(res);
       });
       if(this.result) {
         this.$notify({
@@ -97,7 +96,7 @@ export default {
           type: 'success'
         });
       } else {
-          this.$notify.error({
+        this.$notify.error({
           title: 'Error',
           message: 'Update failed'
         });
@@ -113,31 +112,6 @@ export default {
   },
   mounted() {
     this.initData();
-    
-    // let xmlBody = `
-    // <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
-    //               xmlns:us="http://www.soen487.com/log-ws">
-    // <soapenv:Header/>
-    // <soapenv:Body>
-    //     <us:getChangeLogsRequest>
-    //         <us:from>2020</us:from>
-    //         <us:to>2028</us:to>
-    //         <us:type>create</us:type>
-    //     </us:getChangeLogsRequest>
-    // </soapenv:Body>
-    // </soapenv:Envelope>
-    // `;
-    // axios.post(
-    //   "http://localhost:8866/log/",
-    //   xmlBody,
-    //   {
-    //     headers: {
-    //       "Content-Type": "text/xml"
-    //     }
-    //   }
-    // ).then((res)=>{
-    //   console.log(res);
-    // });
   },
 }
 </script>

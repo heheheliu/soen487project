@@ -22,9 +22,9 @@ public class Album {
     @XmlElement
     private String author;
     @XmlElement
-    public byte[] cover;
+    public String cover;
 
-    public Album(String title, String description, int year, String author, byte[] cover) {
+    public Album(String title, String description, int year, String author, String cover) {
         String id = UUID.randomUUID().toString().toLowerCase().substring(0,6);
         while(idSet.contains(id)){
             id = UUID.randomUUID().toString().toLowerCase().substring(1,7);
@@ -38,7 +38,7 @@ public class Album {
         idSet.add(this.code);
     }
 
-    public Album(String code, String title, String description, int year, String author, byte[] cover) {
+    public Album(String code, String title, String description, int year, String author, String cover) {
         //if(idSet.contains(code)) throw new DuplicatedIdException();
         this.code = code;
         this.title = title;
@@ -100,11 +100,11 @@ public class Album {
 //        this.artist = artist;
 //    }
 
-    public byte[] getCover() {
+    public String getCover() {
         return cover;
     }
 
-    public void setCover(byte[] cover) {
+    public void setCover(String cover) {
         this.cover = cover;
     }
 

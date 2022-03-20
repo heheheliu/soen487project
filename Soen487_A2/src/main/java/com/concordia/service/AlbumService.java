@@ -8,8 +8,8 @@ import java.util.List;
 
 public interface AlbumService {
     String getTime();
-    Boolean createAlbum(String code, String title, String description, int year, String author, Blob cover);
-    Boolean updateAlbum(String code,String title, String description, int year, String author, Blob cover);
+    Boolean createAlbum(String code, String title, String description, int year, String author, String cover);
+    Boolean updateAlbum(String code,String title, String description, int year, String author, String cover);
     Boolean deleteAlbum(String code);
     Album getAlbumByCode(String code);
     List<Album> getAllAlbum();
