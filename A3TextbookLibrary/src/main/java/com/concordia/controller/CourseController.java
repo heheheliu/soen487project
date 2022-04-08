@@ -21,6 +21,8 @@ import java.util.List;
 @CrossOrigin
 @RequestMapping("/courses")
 public class CourseController {
+    private final String googleBooksApiUrl = "https://www.googleapis.com/books/v1/";
+
     @Autowired
     private CourseService courseService;
 

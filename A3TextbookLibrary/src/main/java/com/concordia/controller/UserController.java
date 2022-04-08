@@ -5,6 +5,9 @@ import com.concordia.exception.DuplicationUserException;
 import com.concordia.service.MyResponse;
 import com.concordia.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.ws.rs.FormParam;
@@ -15,6 +18,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 @RestController
 @RequestMapping("/user")
@@ -101,35 +105,46 @@ public class UserController implements Serializable {
     }
 
     @GetMapping(path = "enrollment/{username}",produces = "application/json")
-    public String getEnrollment(@PathVariable String username){
-        return userService.getEnrollment(username);
+    public String getEnrollment(@RequestHeader(value = "token") String token,@PathVariable String username){
+
+        if(validateToken(token).getBody().equals("true")){
+            return userService.getEnrollment(username);
+        }
+        return "access fail";
     }
 
     @PutMapping(path = "enrollment/{username}")
-    public Boolean updateEnrollment(@PathVariable String username, @FormParam("enrollment") String enrollment){
-        return userService.updateEnrollment(username,enrollment);
+    public String updateEnrollment(@RequestHeader(value = "token") String token,@PathVariable("username") String username, @FormParam("enrollment") String enrollment){
+        if(validateToken(token).getBody().equals("true")){
+            if(userService.updateEnrollment(username,enrollment)){
+                return "updated enrollment successfully";
+            }else {
+                return "update enrollment fail";
+            }
+        }
+        return "access fail";
     }
 
 
-//    @PostMapping(path = "auth", produces = MediaType.APPLICATION_JSON_VALUE)
-//    public static ResponseEntity<String> validateToken(@RequestHeader("token") String token){
+    @PostMapping(path = "auth", produces = MediaType.APPLICATION_JSON_VALUE)
+    public static ResponseEntity<String> validateToken(@RequestHeader("token") String token){
 //        Map<String, String> body = new HashMap<>();
-//        if (tokenUsername.containsKey(token)) {
+        if (tokenUsername.containsKey(token)) {
 //            body.put("success", "true");
-//            Date timeNow = new Date();
-//            long diff = timeNow.getTime() - tokenExpiration.get(token).getTime();
-//            long tokenDuration = TimeUnit.MILLISECONDS.toMinutes(diff);
-//            System.out.println("Duration: " + tokenDuration);
-//            if (tokenDuration > 30) {
-//                tokenUsername.remove(token);
-//                tokenExpiration.remove(token);
-//            } else {
-//                return new ResponseEntity<String>("true", HttpStatus.OK);
-//            }
-//        }
+            Date timeNow = new Date();
+            long diff = timeNow.getTime() - tokenExpiration.get(token).getTime();
+            long tokenDuration = TimeUnit.MILLISECONDS.toMinutes(diff);
+            System.out.println("Duration: " + tokenDuration);
+            if (tokenDuration > 30) {
+                tokenUsername.remove(token);
+                tokenExpiration.remove(token);
+            } else {
+                return new ResponseEntity<String>("true", HttpStatus.OK);
+            }
+        }
 //        body.put("success", "false");
-//        return new ResponseEntity<String>("false", HttpStatus.UNAUTHORIZED);
-//    }
+        return new ResponseEntity<String>("false", HttpStatus.UNAUTHORIZED);
+    }
 
 
 }
