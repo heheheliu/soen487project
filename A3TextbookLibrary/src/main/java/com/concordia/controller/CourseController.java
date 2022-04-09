@@ -2,27 +2,37 @@ package com.concordia.controller;
 
 import com.concordia.domain.Comment;
 import com.concordia.domain.Course;
+import com.concordia.googlemodel.GoogleBook;
+
 import com.concordia.service.CourseService;
+
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
+
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CachePut;
-import org.springframework.web.bind.annotation.*;
 
-import javax.ws.rs.Path;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
+
+
 import java.io.IOException;
+
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 @RestController
 @CrossOrigin
 @RequestMapping("/courses")
 public class CourseController {
-    private final String googleBooksApiUrl = "https://www.googleapis.com/books/v1/";
-    private String auth_url = "http://localhost:8899/user/auth";
+    private static final String googleBooksApiUrl = "https://www.googleapis.com/books/v1/volumes?q=";
+    private static final String auth_url = "http://localhost:8899/user/auth";
+    public static List<GoogleBook> googleBooksList = new CopyOnWriteArrayList<>();
 
     @Autowired
     private CourseService courseService;
@@ -241,6 +251,33 @@ public class CourseController {
         if(validateToken(token)){
             System.out.println("User is authenticated.");
             return courseService.getCommentByCourseNum(courseNum);
+        }
+        else{
+            System.out.println("User is not authenticated");
+            return null;
+        }
+
+    }
+
+
+    @GetMapping(value = "searchGoogleBook/{name}",produces = "application/json")
+    public ResponseEntity<GoogleBook> getBook(@RequestHeader(value = "token") String token,
+                                              @PathVariable("name") String name) {
+        if(validateToken(token)) {
+            System.out.println("User is authenticated.");
+            name = name.replaceAll(" ", "+");
+            String url = googleBooksApiUrl + name + "&maxResults=3";
+
+            // Get the rest template
+            RestTemplate restTemplate = new RestTemplate();
+
+            // Call the api to get books
+            ResponseEntity<GoogleBook> responseEntity = restTemplate
+                    .getForEntity(url, GoogleBook.class );
+
+            GoogleBook book = GoogleBook.builder().build();
+            book = responseEntity.getBody();
+            return new ResponseEntity<>(book, HttpStatus.OK);
         }
         else{
             System.out.println("User is not authenticated");
