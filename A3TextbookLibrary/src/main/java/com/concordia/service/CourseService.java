@@ -21,5 +21,6 @@ public interface CourseService {
     boolean updateComment(String username, String courseNum, String comments);
     List<Comment> getAllComment();
     List<Comment> getCommentByCourseNum(String courseNum);
+    boolean deleteComment(String username, String courseNum);
 
 }

@@ -68,4 +68,9 @@ public class CourseServiceImpl implements CourseService{
     public List<Comment> getCommentByCourseNum(String courseNum) {
         return courseMapper.getCommentByCourseNum(courseNum);
     }
+
+    @Override
+    public boolean deleteComment(String username, String courseNum) {
+        return courseMapper.deleteComment(username, courseNum) > 0;
+    }
 }

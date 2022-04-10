@@ -16,3 +16,6 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+google:
+  googleBookApiUrl: "https://www.googleapis.com/books/v1/volumes?q="

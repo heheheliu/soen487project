@@ -50,6 +50,11 @@ public interface CourseMapper {
     @Select("select * from comment where courseNum = #{courseNum}")
     public List<Comment> getCommentByCourseNum(String courseNum);
 
+    @Delete("delete from comment where username=#{username} and courseNum=#{courseNum}")
+    public int deleteComment(String username, String courseNum);
+
+
+
 
 
 

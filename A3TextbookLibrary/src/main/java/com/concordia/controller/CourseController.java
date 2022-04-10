@@ -15,6 +15,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -30,9 +31,10 @@ import java.util.concurrent.CopyOnWriteArrayList;
 @CrossOrigin
 @RequestMapping("/courses")
 public class CourseController {
-    private static final String googleBooksApiUrl = "https://www.googleapis.com/books/v1/volumes?q=";
+    @Value("${google.googleBookApiUrl}")
+    private String googleBooksApiUrl;
     private static final String auth_url = "http://localhost:8899/user/auth";
-    public static List<GoogleBook> googleBooksList = new CopyOnWriteArrayList<>();
+
 
     @Autowired
     private CourseService courseService;
@@ -259,6 +261,27 @@ public class CourseController {
 
     }
 
+    @DeleteMapping(path = "deleteComment/{username}/{courseNum}",produces = "application/json")
+    public String deleteComment(@RequestHeader(value = "token") String token,
+                                @PathVariable("username") String username,
+                                @PathVariable("courseNum") String courseNum){
+        if(validateToken(token)) {
+            System.out.println("User is authenticated.");
+            Boolean result = courseService.deleteComment(username,courseNum);
+            if(result){
+                return "deleted course comment successfully";
+            }
+            else{
+                return "delete course comment fail";
+            }
+        }
+        else{
+            System.out.println("User is not authenticated");
+            return "User is not authenticated";
+        }
+
+    }
+
 
     @GetMapping(value = "searchGoogleBook/{name}",produces = "application/json")
     public ResponseEntity<GoogleBook> getBook(@RequestHeader(value = "token") String token,
@@ -266,7 +289,7 @@ public class CourseController {
         if(validateToken(token)) {
             System.out.println("User is authenticated.");
             name = name.replaceAll(" ", "+");
-            String url = googleBooksApiUrl + name + "&maxResults=3";
+            String url = googleBooksApiUrl + name + "&maxResults=5";
 
             // Get the rest template
             RestTemplate restTemplate = new RestTemplate();
