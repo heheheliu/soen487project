@@ -93,7 +93,7 @@ export default {
       this.$refs[formName].resetFields();
     },
     goLogin() {
-      this.$router.push({path: '/Login'});
+      this.$router.push({path: '/'});
     }
   },
 }

@@ -4,6 +4,7 @@
       <el-header style="text-align:center;height:150px">
         <h1>Course List</h1>
         <div style="position:absolute;top:10px;right:10px;"><el-button @click="logOut">Log Out</el-button></div>
+        <div style="position:absolute;top:10px;left:10px;"><el-button @click="back">Back</el-button></div>
         <el-row>
           <el-col :span="12" :offset="6">
             <el-input
@@ -14,10 +15,10 @@
             </el-input>
           </el-col>
           <el-col :span="6">
-            <div style="padding:0px;margin:0px;width:70px;top:15px;right:15px;position:absolute;">
+            <!-- <div style="padding:0px;margin:0px;width:70px;top:15px;right:15px;position:absolute;">
               <el-button icon="el-icon-document-add" circle size="mini" @click="addAlbum"></el-button>
               <el-button icon="el-icon-document" circle size="mini" ></el-button>
-            </div>
+            </div> -->
           </el-col>
         </el-row>
       </el-header>
@@ -37,9 +38,9 @@
                 </el-col>
                 <el-col :span="4">
                   <div style="padding:0px;margin:0px;width:30px;top:0;right:0;position:absolute;">
-                    <div><el-button type="success" icon="el-icon-edit" circle size="mini" @click="checkComment(course.courseNum)"></el-button></div>
-                    <div><el-button type="success" icon="el-icon-edit" circle size="mini" @click="checkBook(course.courseNum)"></el-button></div>
-                    <div><el-button type="danger" icon="el-icon-delete" circle size="mini" @click="deleteAlbum(album.code)"></el-button></div>
+                    <div><el-button type="warning" icon="el-icon-s-comment" circle size="mini" @click="checkComment(course.courseNum)"></el-button></div>
+                    <div><el-button type="success" icon="el-icon-notebook-1" circle size="mini" @click="checkBook(course.courseNum)"></el-button></div>
+                    <!-- <div><el-button type="danger" icon="el-icon-delete" circle size="mini" @click="deleteAlbum(album.code)"></el-button></div> -->
                   </div>
                 </el-col>
               </el-row>
@@ -81,14 +82,14 @@ export default {
       localStorage.clear();
       this.$router.push('/');
     },
+    back() {
+      this.$router.push('/Homeview');
+    },
     checkComment(code) {
       this.$router.push({path:`/comments/${code}`});
     },
     checkBook(code) {
       this.$router.push({path:`/books/${code}`});
-    },
-    addAlbum() {
-      this.$router.push({path:`/add`});
     },
     async deleteAlbum(code) {
       await axios.delete(`http://localhost:8866/albums/${code}`).then((res)=>{

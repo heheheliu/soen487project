@@ -1,10 +1,10 @@
 <template>
-  <div class="comment">
+  <div class="manage-comment">
     <el-container>
       <el-header style="text-align:center;height:150px">
-        <h1>{{courseNum}} - Comments List</h1>
+        <h1>Manage Comments List</h1>
         <div style="position:absolute;top:10px;right:10px;"><el-button @click="logOut">Log Out</el-button></div>
-        <div style="position:absolute;top:10px;left:10px;"><el-button @click="back">Back</el-button></div>
+        <div style="position:absolute;top:10px;left:10px;"><el-button @click="back">Courses</el-button></div>
         <el-row>
           <el-col :span="12" :offset="6">
             <el-input
@@ -15,10 +15,10 @@
             </el-input>
           </el-col>
           <el-col :span="6">
-            <!-- <div style="padding:0px;margin:0px;width:70px;top:15px;right:15px;position:absolute;">
+            <div style="padding:0px;margin:0px;width:70px;top:15px;right:15px;position:absolute;">
               <el-button icon="el-icon-document-add" circle size="mini" ></el-button>
               <el-button icon="el-icon-document" circle size="mini"></el-button>
-            </div> -->
+            </div>
           </el-col>
         </el-row>
       </el-header>
@@ -28,6 +28,7 @@
             <el-card shadow="hover" style="height:auto">
               <el-row>
                 <el-col :span="18">
+                  <div><h1>{{c.courseNum}}</h1></div>
                   <div>User Name: {{c.username}} </div>
                   <div>Comment: {{c.comment}} </div>                
                 </el-col>
@@ -35,25 +36,13 @@
                 </el-col>
                 <el-col :span="4">
                   <div style="padding:0px;margin:0px;width:30px;top:0;right:0;position:absolute;">
-                    <!-- <div><el-button type="success" icon="el-icon-edit" circle size="mini"></el-button></div>
-                    <div><el-button type="danger" icon="el-icon-delete" circle size="mini"></el-button></div> -->
+                    <div><el-button type="danger" icon="el-icon-delete" circle size="mini" @click="deleteComment(c.username, c.courseNum, c.comment)"></el-button></div>
                   </div>
                 </el-col>
               </el-row>
             </el-card>
           </el-row>
         </div>
-        <div>
-          <h1>Add Comment</h1>
-          <el-input
-            type="textarea"
-            placeholder="Please input"
-            v-model="comment"
-            maxlength="90"
-            show-word-limit
-          ></el-input>
-        </div>
-        <div style="margin:10px"><el-button type="success" size="mini" @click="addComment">Submit</el-button></div>
       </el-main>
     </el-container>
   </div>
@@ -63,7 +52,7 @@
 import axios from 'axios';
 
 export default {
-  name: 'CommentsView',
+  name: 'ManageComment',
   data() {
     return {
       searchValue: "",
@@ -79,7 +68,7 @@ export default {
   methods: {
     doSearch() {
       if(this.searchValue) {
-        this.commentList = this.commentList.filter(comment => comment.username.includes(this.searchValue)||comment.comment.includes(this.searchValue));
+        this.commentList = this.commentList.filter(comment => comment.username.includes(this.searchValue)||comment.comment.includes(this.searchValue)||comment.courseNum.includes(this.searchValue));
       } else {
         this.commentList = this.defaultComList;
       }
@@ -89,64 +78,54 @@ export default {
       this.$router.push('/');
     },
     back() {
-      this.$router.push('/Courseview');
+      this.$router.push('/Managecourse');
     },
-    modifyAlbum(code) {
-      this.$router.push({path:`/modify/${code}`});
-    },
-    async addComment() {
-      await axios.post('http://localhost:8899/courses/createComment?username='+localStorage.getItem('username')+
-      '&courseNum='+this.courseNum+'&comments='+this.comment,null,
-      {
-        headers: {
-          'token': localStorage.getItem('token')
-        }
-      })
-      .then(() => {
-        this.comment = "";
-      });
-      this.initData();
-    },
-    async deleteAlbum(code) {
-      await axios.delete(`http://localhost:8866/albums/${code}`).then((res)=>{
+    async deleteComment(username, classId, comment) {
+      await axios.delete('http://localhost:8899/courses/deleteComment/'+username+'/'+classId+'/'+comment,
+              {
+                headers: {
+                  'token': localStorage.getItem('token'),
+                }
+              })
+      .then((res)=>{
         this.result = res.data;
       });
       if(this.result) {
         this.$notify({
           title: 'Success',
-          message: 'Update success',
+          message: 'Delete success',
           type: 'success'
         });
       } else {
         this.$notify.error({
           title: 'Error',
-          message: 'Update failed'
+          message: 'Delete failed'
         });
       }
       this.initData();
     },
     initData() {
-      axios.get('http://localhost:8899/courses/getComment/'+this.courseNum,
+      axios.get('http://localhost:8899/courses/getAllComment',
         {
           headers: {
             'token': localStorage.getItem('token'),
           }
         })
         .then(res => {
+          console.log(res);
           this.commentList = res.data;
           this.defaultComList = res.data;
       });
     }
   },
   created() {
-    this.courseNum = this.$route.params.code;
     this.initData();
   },
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-.comment {
+.manage-comment {
   height: 100%;
 }
 

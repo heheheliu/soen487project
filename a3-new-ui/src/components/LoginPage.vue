@@ -77,9 +77,15 @@ export default {
               });
               localStorage.setItem('username', this.userinfo.username);
               localStorage.setItem('token',res.data.entity.token);
-              setTimeout(() => {
+              if(this.userinfo.username != "admin"){
+                setTimeout(() => {
                 this.$router.push({path : '/Homeview'})
-              },1000);
+                },1000);
+              } else {
+                setTimeout(() => {
+                this.$router.push({path : '/Managecomment'})
+                },1000);
+              } 
             } else {
               this.$notify.error({
                 title: "Error",
@@ -94,7 +100,7 @@ export default {
       });
     },
     goRegist() {
-      this.$router.push({path: '/'});
+      this.$router.push({path: '/Register'});
     },
     resetForm(formName) {
       this.$refs[formName].resetFields();

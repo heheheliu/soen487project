@@ -114,17 +114,6 @@ export default {
         });
       }
     },
-    // handleRemove(file, fileList) {
-    //   console.log(file, fileList);
-    // },
-    // handlePreview(file) {
-    //   console.log(file);
-    //   console.log(this.fileList);
-    // },
-    // changeFileList(file, fileList) {
-    //   this.fileList = fileList;
-    //   this.album.cover = fileList[0].name;
-    // }
   },
 };
 </script>

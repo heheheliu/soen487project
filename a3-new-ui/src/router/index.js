@@ -10,13 +10,13 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'RegisterPage',
-    component: RegisterPage
-  },
-  {
-    path: '/Login',
     name: 'LoginPage',
     component: LoginPage
+  },
+  {
+    path: '/Register',
+    name: 'RegisterPage',
+    component: RegisterPage
   },
   {
     path: '/Homeview',
@@ -37,11 +37,18 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/CommentsView.vue')
   },
   {
+    path: '/Managecomment',
+    name: 'ManageComment',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ManageComment.vue')
+  },
+  {
+    path: '/Managecourse',
+    name: 'ManageCourse',
+    component: () => import(/* webpackChunkName: "about" */ '../views/ManageCourse.vue')
+  },
+  {
     path: '/books/:code',
     name: 'BookView',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/BookView.vue')
   },
   {

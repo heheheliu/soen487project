@@ -70,7 +70,7 @@ public class CourseServiceImpl implements CourseService{
     }
 
     @Override
-    public boolean deleteComment(String username, String courseNum) {
-        return courseMapper.deleteComment(username, courseNum) > 0;
+    public boolean deleteComment(String username, String courseNum, String comment) {
+        return courseMapper.deleteComment(username, courseNum, comment) > 0;
     }
 }

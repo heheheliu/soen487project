@@ -261,13 +261,14 @@ public class CourseController {
 
     }
 
-    @DeleteMapping(path = "deleteComment/{username}/{courseNum}",produces = "application/json")
+    @DeleteMapping(path = "deleteComment/{username}/{courseNum}/{comment}",produces = "application/json")
     public String deleteComment(@RequestHeader(value = "token") String token,
                                 @PathVariable("username") String username,
-                                @PathVariable("courseNum") String courseNum){
+                                @PathVariable("courseNum") String courseNum,
+                                @PathVariable("comment") String comment){
         if(validateToken(token)) {
             System.out.println("User is authenticated.");
-            Boolean result = courseService.deleteComment(username,courseNum);
+            Boolean result = courseService.deleteComment(username,courseNum,comment);
             if(result){
                 return "deleted course comment successfully";
             }

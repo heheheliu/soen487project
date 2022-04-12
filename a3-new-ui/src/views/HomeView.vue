@@ -43,7 +43,18 @@ export default {
     .then(res => {
       this.courses = res.data;
       localStorage.setItem('courses', JSON.stringify(res.data));
+    });
+
+    axios.get('http://localhost:8899/user/enrollment/'+localStorage.getItem('username'),
+    {
+      headers: {
+        'token': localStorage.getItem('token'),
+      }
     })
+    .then(res => {
+      let cList = res.data.split(",");
+      this.checkCourses = cList.filter((id) => id!="");
+    });
   },
   methods: {
     logOut() {
