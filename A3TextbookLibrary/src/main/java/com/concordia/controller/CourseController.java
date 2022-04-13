@@ -42,6 +42,10 @@ public class CourseController {
 
     private boolean validateToken(String token) {
         System.out.println(auth_url);
+        // Setting the truststore to our server.jks file let Java trust the certificate.
+//        System.setProperty("javax.net.debug", "ssl");
+//        System.setProperty("javax.net.ssl.trustStore","localhost.jks");
+//        System.setProperty("javax.net.ssl.trustStorePassword", "changeit");
         try (CloseableHttpClient client = HttpClients.createDefault()) {
             HttpPost httpPost = new HttpPost(String.format(auth_url));
             httpPost.addHeader("token", token);

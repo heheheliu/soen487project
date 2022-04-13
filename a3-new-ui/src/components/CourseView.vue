@@ -8,7 +8,7 @@
         <el-row>
           <el-col :span="12" :offset="6">
             <el-input
-              placeholder="Enter title of Album"
+              placeholder="Enter anything of Course"
               prefix-icon="el-icon-search"
               v-model="searchValue"
               @input="doSearch">
@@ -62,7 +62,7 @@ export default {
   },
   data() {
     return {
-      defaultAlbums: [],
+      defaultCourses: [],
       albums: [],
       searchValue: "",
       result: "",
@@ -73,9 +73,9 @@ export default {
   methods: {
     doSearch() {
       if(this.searchValue) {
-        this.albums = this.albums.filter(album => album.title.includes(this.searchValue));
+        this.courses = this.courses.filter(course => course.professor.includes(this.searchValue)||course.courseNum.includes(this.searchValue)||course.title.includes(this.searchValue));
       } else {
-        this.albums = this.defaultAlbums;
+        this.courses = this.defaultCourses;
       }
     },
     logOut() {

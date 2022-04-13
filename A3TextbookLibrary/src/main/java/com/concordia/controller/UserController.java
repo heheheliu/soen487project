@@ -34,13 +34,17 @@ public class UserController implements Serializable {
 
     @PostMapping(path = "register", produces = "application/json")
     public String createUser(@FormParam("username") String username, @FormParam("password") String password) throws DuplicationUserException {
-        User user = new User(username, password);
+        User user = new User();
+        String pass = user.doHashing(password);
+        user.setUsername(username);
+        user.setPassword(pass);
+
         if(userService.getPassword(username) != null){
             throw new DuplicationUserException();
         }
         else{
             users.add(user);
-            userService.createUser(username,password);
+            userService.createUser(username,pass);
             return "Created user: " + username+ " successfully";
         }
 
@@ -49,13 +53,15 @@ public class UserController implements Serializable {
     @PostMapping(path = "login", produces = "application/json")
     public Response login(@FormParam("username") String username, @FormParam("password") String password) {
         System.out.println(username +" : "+password);
+
         User user = users.stream().filter(user1 -> user1.getUsername().equals(username))
                 .findFirst()
                 .orElse(null);
         MyResponse authResponse;
         Response.Status status;
+        String pass = user.doHashing(password);
         if (user != null) {
-            if (user.getPassword().equals(password)) {
+            if (user.getPassword().equals(pass)) {
                 user.generateToken();
                 System.out.println("Login token1: "+user.getToken());
                 tokenUsername.put(user.getToken(), username);

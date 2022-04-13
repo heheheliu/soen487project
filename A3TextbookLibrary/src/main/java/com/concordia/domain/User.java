@@ -2,6 +2,7 @@ package com.concordia.domain;
 
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;
+import java.security.MessageDigest;
 import java.security.SecureRandom;
 
 @XmlRootElement
@@ -18,7 +19,7 @@ public class User implements Serializable{
     @XmlElement
     private String enrollment;
 
-
+    public User(){}
 
     public User(String username, String password){
         this.username = username;
@@ -61,6 +62,25 @@ public class User implements Serializable{
 
     public void setPassword(String password){
         this.password = password;
+    }
+
+    public String doHashing(String password){
+        try{
+            MessageDigest md = MessageDigest.getInstance("MD5");
+            md.update(password.getBytes());
+            byte[] bytesOfMessage = md.digest();
+            byte[] hash = md.digest(bytesOfMessage);
+            StringBuilder sb = new StringBuilder();
+            for(byte b : bytesOfMessage){
+                sb.append(String.format("%02x", b));
+            }
+            String pass = sb.toString();
+            return pass;
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return "";
     }
 
     public void generateToken(){
